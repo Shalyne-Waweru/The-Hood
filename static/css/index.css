@@ -1,3 +1,83 @@
-body{
-  background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Navigation Bar Section */
+.navbar-layout {
+  margin: 0px;
+  padding-top: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-image: url(../images/home_img_1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 600px;
+}
+
+.navbar { 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar img {
+  width: 150px;
+  height: 150px;
+  margin-top: -50px;
+}
+
+.navbar .auth-btns a, .navbar .auth-btns a:visited{
+  padding: 10px 20px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Charm', cursive;
+  background-color: #FDBAA1;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar .auth-btns a:hover {
+  background-color: rgb(17, 15, 15);
+  color: white;
+}
+
+.blue-txt {
+  color: #495984;
+}
+
+.nav-info {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+.nav-info p {
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.nav-info h3 {
+  margin-top: 70px;
+  font-size: 30px;
+  font-family: 'Charm', cursive;
+}
+
+.explore-btn {
+  background-color: #FDBAA1;
+  padding: 10px;
+  border: 0px;
+  border-radius: 5px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.explore-btn .fas {
+  font-size: 25px;
+  color: white;
 }
