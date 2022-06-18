@@ -39,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pyuploadcare.dj',
 ]
+
+UPLOADCARE = {
+    'pub_key': '1d111b4d2405fb153a7c',
+    'secret': 'b04f667af46742f1ecc1e736',
+
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
