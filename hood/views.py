@@ -27,7 +27,7 @@ def signup(request):
 
 @login_required(login_url='login')
 def hoodsView (request):
-    all_hoods =  Neighborhood.objects.all()
+    all_hoods =  NeighbourHood.objects.all()
     all_hoods = all_hoods[::-1]
     context = {
         'all_hoods': all_hoods
@@ -52,7 +52,7 @@ def newHood (request):
 
 @login_required(login_url='login')
 def hoodMembership (request,hood_id):   
-    hood = Neighborhood.objects.get(id=hood_id)
+    hood = NeighbourHood.objects.get(id=hood_id)
     members =Profile.objects.filter(neighbourhood=hood).all()
     return render(request, 'members.html',{'members':members})
 
@@ -61,7 +61,7 @@ def hoodMembership (request,hood_id):
 def join_hood(request,id):
     neighbourhood =get_object_or_404(neighbourhood,id=id)
     request.user.profile.neighbourhood =neighbourhood
-    requst.user.profile.save()
+    request.user.profile.save()
     return redirect('hood')
 
 @login_required(login_url='login')
@@ -72,7 +72,7 @@ def profile(request,username):
 def edit_profile(request,username):
     use = User.objects.get(username=username)
     if request.method == 'POST':
-        return redirect('profile',user.username)
+        return redirect('profile',request.user.username)
     return render(request, 'editprofile.html')
 
 @login_required(login_url='login')

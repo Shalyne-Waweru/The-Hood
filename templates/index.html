@@ -172,7 +172,65 @@
 
       <div class="add-hood-section">
         <p><strong>Can’t find your neighborhood?</strong></p>
-        <a class="add-hood-btn" href="#">ADD YOUR HOOD</a>
+        <a class="add-hood-btn" data-toggle="modal" data-target="#addHoodModal" href="#">ADD YOUR HOOD</a>
+      </div>
+
+      <!-- New Hood Modal -->
+      <div class="modal" id="addHoodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Create New Hood</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- ADD HOOD FORM SECTION-->
+            <div class="modal-body">
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                  <label>Hood Name</label>
+                  <input type="text" class="form-control" name="hoodName"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Hood Location</label>
+                  <input type="text" class="form-control" name="location"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Hood Description</label>
+                  <textarea type="text" class="form-control" name="description"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Healthcare Emergency Number</label>
+                  <input type="text" class="form-control" name="healthNumber"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Police Emergency Number</label>
+                  <input type="text" class="form-control" name="policeNumber"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Upload Image</label>
+                  <input type="file" class="form-control-file" name="image">
+                </div>
+
+                <button type="submit" class="upload-btn">UPLOAD</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
