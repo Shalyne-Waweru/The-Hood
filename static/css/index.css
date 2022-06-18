@@ -81,3 +81,121 @@ body {
   font-size: 25px;
   color: white;
 }
+
+/* All Hoods Section */
+#hoods-section {
+  text-align: center;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.section-header hr {
+  width: 15px;
+  margin: 15px;
+  margin-top: 30px;
+  height: 3px;
+  border: none;
+  background: #1D160B;
+}
+
+.section-header h2{
+  color: #1D160B;
+  font-family: 'Charm', cursive;
+  font-size: 25px;
+  letter-spacing: 1.0px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.section-info {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#hoods-section .container {
+  max-width: 80% !important;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+#hoods-section .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#hoods-section .col-md-3 {
+  padding: 0px;
+  border-radius: 0px 0px 10px 10px;
+  margin-right: 10px;
+  margin-bottom: 60px;
+  background-color: #E0E9FF;
+}
+
+#hoods-section .col-md-3 img {
+  width: 100%;
+}
+
+#hoods-section .col-md-3 .hood-info {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#hoods-section .col-md-3 .hood-info h3 {
+  text-decoration: underline;
+  font-family: 'Charm', cursive;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+#hoods-section .col-md-3 .hood-info hr {
+  height: 2px;
+  color: #1D160B;
+  margin-top: 20px;
+}
+
+.more-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.join-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 0px;
+  background-color: #495984;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.join-btn a, .join-btn a:visited {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.add-hood-btn, .add-hood-btn:visited{
+  padding: 10px 25px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Charm', cursive;
+  background-color: #FDBAA1;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.add-hood-btn:hover {
+  background-color: rgb(17, 15, 15);
+  color: white;
+  text-decoration: none;
+}
