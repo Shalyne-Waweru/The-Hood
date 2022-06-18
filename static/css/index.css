@@ -75,6 +75,18 @@ body {
   border-radius: 5px;
   height: 60px;
   margin-top: 10px;
+  -webkit-animation: action 1s infinite  alternate;
+  animation: action 1s infinite  alternate;
+}
+
+@-webkit-keyframes action {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
 
 .explore-btn .fas {
@@ -182,6 +194,12 @@ body {
   text-decoration: none;
 }
 
+.add-hood-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-hood-btn, .add-hood-btn:visited{
   padding: 10px 25px;
   color: black;
@@ -190,12 +208,55 @@ body {
   background-color: #FDBAA1;
   border-radius: 5px;
   text-decoration: none;
-  cursor: pointer;
   margin-left: 20px;
+  margin-top: -15px;
+  cursor: pointer;
 }
 
 .add-hood-btn:hover {
   background-color: rgb(17, 15, 15);
   color: white;
   text-decoration: none;
+}
+
+/* Footer Section */
+.footer {
+  height: 120px;
+  background-color: #263969;
+  margin-top: 40px;
+}
+
+.fab {
+  margin-top: 20px;
+  font-size: 25px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.fab:hover {
+    color: #FDBAA1;
+    text-decoration: none;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.footer hr{
+  height: 1px;
+  width: 15%;
+  margin-left: 42%;
+  background: white;
+}
+
+.footer p {
+  color: #FDBAA1;
+  text-align: center;
+  font-size: 18px;
 }
