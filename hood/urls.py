@@ -4,7 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name = 'index'),  
     path('register/', views.signup, name='signup'),
-    path('account/', include('django.contrib.auth.urls')),
+    path('login', views.login_user, name='login'),
+    # path('account/', include('django.contrib.auth.urls')),
     path('all-hoods/', views.hoodsView, name='hood'),
     path('new-hood/', views.newHood, name='new-hood'),
     path('profile/', views.profile, name='profile'),

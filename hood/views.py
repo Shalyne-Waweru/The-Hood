@@ -10,6 +10,9 @@ from .forms import UpdateProfileForm, NeighbourHoodForm,SignupForm,BusinessForm,
 def index (request):    
     return render(request, 'index.html')
 
+def login_user(request):
+    return render(request, 'auth/login.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
