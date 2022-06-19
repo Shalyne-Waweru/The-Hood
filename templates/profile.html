@@ -44,7 +44,7 @@
 
   <!-- Profile Info Section -->
   <div class="hood-info">
-    <img src="{% static 'images/person.jpeg' %}" alt="Profile Image" />
+    <img src="{{ user.profile.profile_image.url }}" alt="" />
 
     <h3>Username</h3>
     <p>My Bio</p>
