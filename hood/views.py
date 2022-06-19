@@ -10,19 +10,22 @@ from .forms import UpdateProfileForm, NeighbourHoodForm,SignupForm,BusinessForm,
 def index (request):    
     return render(request, 'index.html')
 
+def login_user(request):
+    return render(request, 'auth/login.html')
+
 def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('index')
-    else:
-        form = SignupForm()
-    return render(request, 'registration/signup.html', {'form': form})
+    # if request.method == 'POST':
+    #     form = SignupForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         username = form.cleaned_data.get('username')
+    #         password = form.cleaned_data.get('password1')
+    #         user = authenticate(username=username, password=password)
+    #         login(request, user)
+    #         return redirect('index')
+    # else:
+    #     form = SignupForm()
+    return render(request, 'auth/signup.html', locals())
 
 
 @login_required(login_url='login')
@@ -65,8 +68,8 @@ def join_hood(request):
     # return redirect('hood')
     return render(request, 'single_hood.html')
 
-@login_required(login_url='login')
-def profile(request,username):
+# @login_required(login_url='login')
+def profile(request):
     return render(request, 'profile.html')
 
 @login_required(login_url='login')

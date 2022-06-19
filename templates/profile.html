@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+  <title>Profile Page</title>
+</head>
+
+<body>
+  <!-- Navbar Section -->
+  <div class="navbar-layout">
+    <nav class="navbar">
+      <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
+
+      <div class="logged-info">
+        <p>Username</p>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img style="margin-top: 5px;" src="{% static 'images/person.jpeg' %}" alt="Profile Image">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Log Out</a>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- Profile Info Section -->
+  <div class="hood-info">
+    <img src="{% static 'images/person.jpeg' %}" alt="Profile Image" />
+
+    <h3>Username</h3>
+    <p>My Bio</p>
+
+    <div class="more-info">
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Location</p>
+      </div>
+
+      <div class="neighborhood">
+        <i class="fas fa-house-user"></i>
+        <p>Neighborhood</p>
+      </div>
+
+    </div>
+
+    <button class="edit-profile-btn"><a href="#">EDIT PROFILE</a></button>
+
+  </div>
+
+  <hr>
+
+  <!-- Hood Businesses Info Section -->
+  <div class="hood-businesses">
+
+    <div class="sections">
+      <p class="business"><strong>5 Businesses</strong></p>
+      <p class="posts"><strong>10 Alerts/Announcements</strong></p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% block scripts %}
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'js/jquery-3.6.0.min.js' %} "></script>
+  <script src="{% static 'js/popper.min.js' %} "></script>
+  <script src="{% static 'js/bootstrap.min.js' %} "></script>
+  <script src="{% static 'js/script.js' %} "></script>
+  {% endblock %}
+</body>
+
+</html>

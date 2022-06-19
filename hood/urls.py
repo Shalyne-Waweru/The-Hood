@@ -3,11 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name = 'index'),  
-    path('register/', views.signup, name='signup'),
-    path('account/', include('django.contrib.auth.urls')),
+    path('signup/', views.signup, name='signup'),
+    path('login', views.login_user, name='login'),
+    # path('account/', include('django.contrib.auth.urls')),
     path('all-hoods/', views.hoodsView, name='hood'),
     path('new-hood/', views.newHood, name='new-hood'),
-    path('profile/<username>', views.profile, name='profile'),
+    path('profile/', views.profile, name='profile'),
     path('profile/<username>/edit/', views.edit_profile, name='edit-profile'),
     path('join_hood/', views.join_hood, name='join-hood'),
     path('leave_hood/<id>', views.leave_hood, name='leave-hood'),
