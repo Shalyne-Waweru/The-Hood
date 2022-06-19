@@ -29,11 +29,11 @@
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <img style="margin-top: 5px;" src="{% static 'images/person.jpeg' %}" alt="Profile Image">
+            <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="Profile Image">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Log Out</a>
+            <a class="dropdown-item" href="{% url 'profile'%}">Profile</a>
+            <a class="dropdown-item" href="{% url 'index'%}">Log Out</a>
           </div>
         </div>
 
@@ -62,7 +62,7 @@
 
     </div>
 
-    <button class="edit-profile-btn"><a href="#">EDIT PROFILE</a></button>
+    <button class="edit-profile-btn"><a href="{% url 'edit-profile'%}">EDIT PROFILE</a></button>
 
   </div>
 
@@ -143,7 +143,7 @@
               <a href="#">
                 <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
               </a>
-              <p><strong>Username</strong></p>
+              <p><strong>{{user.username}}</strong></p>
             </div>
 
             <p><strong>DATE :</strong> 08/04/2022</p>

@@ -25,6 +25,7 @@ def signup(request):
     #         return redirect('index')
     # else:
     #     form = SignupForm()
+    return redirect('index')
     return render(request, 'auth/signup.html', locals())
 
 
