@@ -17,7 +17,7 @@ form {
 }
 
 .login form img {
-  margin-left: 200px;
+  margin-left: 190px;
   margin-top: 20px;
   margin-bottom: 10px;
   width: 130px;
@@ -40,7 +40,7 @@ form {
   outline: none !important;
   background-color: white;
   border: 1px solid lightgray;
-  box-shadow: 0 0 0 0.2rem lightgray;
+  box-shadow: 0 0 0 0.2rem #6480c7;
 }
 
 input {
@@ -63,7 +63,6 @@ input:focus {
   padding: 10px;
   color: white;
   background-color: #5B6C97;
-  font-family: 'Charm', 'sans-serif';
   font-weight: bold;
   width: 88%;
   cursor: pointer;
@@ -72,12 +71,13 @@ input:focus {
 }
 
 .auth-login-btn:hover {
-  background-color: gray;
+  background-color: #FDBAA1;
 }
 
 .auth-login-btn a, .auth-login-btn a:visited {
   color: white;
   text-decoration: none;
+  font-family: 'Charm', 'sans-serif';
 }
 
 .redirect-txt a{
