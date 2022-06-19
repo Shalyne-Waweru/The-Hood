@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
   <!-- Navbar Section -->
   <div class="navbar-layout">
     <nav class="navbar">
-      <img src="{% static 'images/logo.png' %}" alt="Logo">
+      <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
 
       <div class="auth-btns">
         <a href="#">LOGIN</a>
@@ -81,7 +81,7 @@
             </div>
           </div>
 
-          <button class="join-btn" type="button"><a href="#">JOIN HOOD</a></button>
+          <button class="join-btn" type="button"><a href="{% url 'join-hood' %}">JOIN HOOD</a></button>
         </div>
 
         <div class="col-md-3">

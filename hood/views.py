@@ -57,12 +57,13 @@ def hoodMembership (request,hood_id):
     return render(request, 'members.html',{'members':members})
 
 
-@login_required(login_url='login')
-def join_hood(request,id):
-    neighbourhood =get_object_or_404(neighbourhood,id=id)
-    request.user.profile.neighbourhood =neighbourhood
-    request.user.profile.save()
-    return redirect('hood')
+# @login_required(login_url='login')
+def join_hood(request):
+    # neighbourhood =get_object_or_404(neighbourhood,id=id)
+    # request.user.profile.neighbourhood =neighbourhood
+    # request.user.profile.save()
+    # return redirect('hood')
+    return render(request, 'single_hood.html')
 
 @login_required(login_url='login')
 def profile(request,username):

@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/single_hood.css' %}">
+
+  <title>Neighborhood Page</title>
+</head>
+
+<body>
+  <!-- Navbar Section -->
+  <div class="navbar-layout">
+    <nav class="navbar">
+      <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
+
+      <div class="auth-btns">
+        <a href="#">LOGIN</a>
+      </div>
+    </nav>
+
+    <div class="nav-info">
+      <h1><strong>Discover the <span class="blue-txt">Latest News</span> in your Neighborhood </strong></h1>
+
+      <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Search for a business .." aria-label="Search">
+        <button class="search-btn" type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+
+      <p>Or browse the <br> highlights</p>
+
+      <img src="{% static 'images/arrow.png' %}" alt="Arrow" />
+
+      <h6>Salon, Fast Food, Plumber, Butchery, Boutique</h6>
+    </div>
+
+  </div>
+
+  <!-- Hood Info Section -->
+  <div class="hood-info">
+    <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image" />
+
+    <h3>Hood Name</h3>
+    <p><strong>Location</strong></p>
+    <p>Lorem ipsum dolor sit amet. 33
+      impedit dolorem aut enim molestiae
+      et sint nobis est sunt quis id ipsum
+      fugit. Ut quibusdam quae!</p>
+
+    <div class="emergency">
+      <div class="service">
+        <p><strong>Police Services</strong></p>
+        <p style="margin-top: -10px;">+254712345678</p>
+      </div>
+
+      <div class="service">
+        <p><strong>Healthcare Services</strong></p>
+        <p style="margin-top: -10px;">+254712345678</p>
+      </div>
+
+      <div class="service">
+        <i class="fas fa-users"></i>
+        <p><strong>4</strong> Occupants</p>
+      </div>
+    </div>
+
+    <div class="action-btns">
+      <a class="add-btn" href="#">ADD POST</a>
+      <a class="add-btn" href="#">ADD BUSINESS</a>
+      <a class="leave-btn" href="#">LEAVE HOOD</a>
+    </div>
+
+  </div>
+
+  <!-- Hood Businesses Info Section -->
+  <div class="hood-businesses">
+    <div class="section-header">
+      <hr class="horizontal">
+      <h2>NEIGHBORHOOD INFO</h2>
+      <hr class="horizontal">
+    </div>
+
+    <div class="sections">
+      <p class="business"><strong>Businesses</strong></p>
+      <p class="posts"><strong>Posts</strong></p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+
+          <h3><strong>Business Name</strong></h3>
+          <p><strong>business@gmail.com</strong></p>
+          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
+            impedit dolorem aut enim molestiae
+            et sint nobis est sunt quis id ipsum
+            fugit. Ut quibusdam quae!</p>
+
+          <hr>
+
+          <div class="more-info">
+            <div class="user-info">
+              <a href="#">
+                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+              </a>
+              <p><strong>Username</strong></p>
+            </div>
+
+            <p><strong>DATE :</strong> 08/04/2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% block scripts %}
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'js/jquery-3.6.0.min.js' %} "></script>
+  <script src="{% static 'js/popper.min.js' %} "></script>
+  <script src="{% static 'js/bootstrap.min.js' %} "></script>
+  <script src="{% static 'js/script.js' %} "></script>
+  {% endblock %}
+</body>
+
+</html>
