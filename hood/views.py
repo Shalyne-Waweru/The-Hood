@@ -65,8 +65,8 @@ def join_hood(request):
     # return redirect('hood')
     return render(request, 'single_hood.html')
 
-@login_required(login_url='login')
-def profile(request,username):
+# @login_required(login_url='login')
+def profile(request):
     return render(request, 'profile.html')
 
 @login_required(login_url='login')
