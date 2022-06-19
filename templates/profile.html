@@ -29,7 +29,7 @@
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="Profile Image">
+            <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="{% url 'profile'%}">Profile</a>
@@ -62,7 +62,7 @@
 
     </div>
 
-    <button class="edit-profile-btn"><a href="{% url 'edit-profile'%}">EDIT PROFILE</a></button>
+    <button class="edit-profile-btn"><a href="#">EDIT PROFILE</a></button>
 
   </div>
 

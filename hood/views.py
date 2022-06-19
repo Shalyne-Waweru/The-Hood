@@ -78,7 +78,7 @@ def edit_profile(request,username):
     use = User.objects.get(username=username)
     if request.method == 'POST':
         return redirect('profile',request.user.username)
-    return render(request, 'editprofile.html')
+    return render(request, 'profile.html')
 
 @login_required(login_url='login')
 def add_amenity(request,hood_id):
