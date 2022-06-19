@@ -260,3 +260,45 @@ body {
   text-align: center;
   font-size: 18px;
 }
+
+/* Add Hood Modal */
+.modal {
+  text-align: left;
+}
+
+.modal-content {
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.modal-title {
+  font-family: 'Charm', 'sans-serif';
+  font-weight: bold;
+}
+
+.form-control-file {
+  border: 1px solid rgb(190, 189, 189);
+  height: 40px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.upload-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+  background-color: #495984;
+  font-family: 'Charm', 'sans-serif';
+  font-weight: bold;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.upload-btn:hover {
+  background-color: #FDBAA1;
+  color: black;
+}
