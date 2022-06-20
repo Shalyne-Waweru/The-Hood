@@ -24,10 +24,26 @@
   <div class="navbar-layout">
     <nav class="navbar">
       <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
-
+     
+      {% if user.is_authenticated %}
+      <div class="logged-info">
+        <p>{{user.username}}</p>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'profile'%}">Profile</a>
+            <a class="dropdown-item" href="{% url 'login'%}">Log Out</a>
+          </div>
+        </div>
+        {% else %}
+     
       <div class="auth-btns">
         <a href="{% url 'login' %}">LOGIN</a>
       </div>
+      {% endif %}
     </nav>
 
     <div class="nav-info">

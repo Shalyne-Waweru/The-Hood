@@ -97,8 +97,26 @@ def join_hood(request):
     return render(request, 'single_hood.html')
 
 # @login_required(login_url='login')
-def profile(request):
-    return render(request, 'profile.html')
+def profile(request, profile_id):
+  '''
+  View function that renders the profile page and its data
+  '''
+
+  user_info_form = UpdateUserInfoForm()
+  update_profile_form = UpdateProfileForm()
+  
+  if request.method == 'POST':
+    user_info_form = UpdateUserInfoForm(request.POST,instance=request.user)
+    update_profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+    
+    if user_info_form.is_valid and update_profile_form.is_valid():
+            user_info_form.save()
+            update_profile_form.save()
+            return HttpResponseRedirect(request.path_info)
+  else:
+        user_info_form = UpdateUserInfoForm(instance=request.user)
+        update_profile_form = UpdateProfileForm(instance=request.user.profile)
+  return render(request, 'profile.html', locals())
 
 @login_required(login_url='login')
 def edit_profile(request,username):

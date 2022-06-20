@@ -62,7 +62,48 @@
 
     </div>
 
-    <button class="edit-profile-btn"><a href="#">EDIT PROFILE</a></button>
+    <button class="edit-profile-btn" data-toggle="modal" data-target="#updateProfileModal"><a href="#">EDIT
+        PROFILE</a></button>
+
+    <!-- Change Profile Section -->
+    <div class="modal" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">UPDATE PROFILE</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label>Username</label><br>
+                <input type="text" class="form-control" name="username" value="{{user.username}}">
+              </div>
+              <div class="form-group">
+                <label>Email</label><br>
+                <div class="form-control">{{user_info_form.email}}</div>
+              </div>
+              <div class="form-group">
+                {{update_profile_form.bio.label}}
+                <div class="form-control">{{update_profile_form.bio}}</div>
+              </div>
+              <div class="form-group">
+                <label>Upload Profile Image</label>
+                <div class="form-control">{{update_profile_form.profile_pic}}</div>
+              </div>
+              <button class="upload-pic" type="submit">UPDATE PROFILE</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
