@@ -11,6 +11,23 @@ from django.http import HttpResponseRedirect
 def index (request):    
     hoods = NeighbourHood.objects.all()
     
+    if request.method == "POST":
+        
+        name = request.POST.get('hoodName')
+        location = request.POST.get('location')
+        description = request.POST.get('description')
+        emergency = request.POST.get('emergency')
+        police_number = request.POST.get('police_number')
+        image = request.FILES['image']
+        
+        new_hood = NeighbourHood(name=name, location=location, description=description, image=image, emergency=emergency,police_number=police_number)
+        new_hood.save()
+        
+        print(name)
+        print(image)
+        
+        return redirect("index")
+    
     return render(request, 'index.html', locals())
 
 def login_user(request):
@@ -90,12 +107,33 @@ def hoodMembership (request,hood_id):
 
 
 # @login_required(login_url='login')
-def join_hood(request):
-    # neighbourhood =get_object_or_404(neighbourhood,id=id)
-    # request.user.profile.neighbourhood =neighbourhood
-    # request.user.profile.save()
-    # return redirect('hood')
-    return render(request, 'single_hood.html')
+def join_hood(request,id):
+    neighbourhood =get_object_or_404(NeighbourHood,id=id)
+    request.user.profile.neighbourhood =neighbourhood
+    request.user.profile.save()
+    
+    members =Profile.objects.filter(neighbourhood=neighbourhood).all()
+    
+    businesses = Business.objects.filter(neighbourhood=neighbourhood).all()
+    
+    user = NeighbourHood.objects.filter(occupants=request.user.id)
+    print(user)
+    
+    if request.method == "POST":
+        
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        description = request.POST.get('description')
+        image = request.FILES['image']
+        
+        new_business = Business(name=name, email=email, description=description, neighbourhood=neighbourhood, user=request.user, image=image)
+        new_business.save()
+        
+        print(name)
+        print(image)
+    
+    
+    return render(request, 'single_hood.html', locals())
 
 # @login_required(login_url='login')
 def profile(request,id):

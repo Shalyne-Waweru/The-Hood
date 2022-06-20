@@ -8,11 +8,12 @@ from django.db.models.signals import post_save
 
 class NeighbourHood(models.Model):
     name = models.CharField(max_length=50)
-    location = models.CharField(max_length=100)
-    description = models.TextField()
-    image= models.ImageField(upload_to='hood_images/',null=True)
+    location = models.CharField(max_length=100,blank=True)
+    description = models.TextField(blank=True)
+    image= models.ImageField(upload_to='hood_images/',blank=True,null=True)
     emergency = models.IntegerField(null=True,blank=True)
     police_number = models.IntegerField(null=True, blank=True)
+    occupants = models.PositiveIntegerField(null=True, blank=True)
     
     def __str__(self):
         return f'{self.name} hood'
@@ -52,7 +53,7 @@ class Business(models.Model):
     email = models.EmailField(max_length=254)
     description = models.TextField(blank=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='business')
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
     image = models.ImageField(upload_to='business_images/', null=True, blank=True)
 
 

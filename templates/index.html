@@ -80,7 +80,7 @@
 
           <div class="hood-info">
             <h3>{{hood.name}}</h3>
-            <p>{{hood.description}}</p>
+            <p>{{hood.description |truncatechars:50}}</p>
 
             <hr>
 
@@ -90,14 +90,14 @@
                 <p>{{hood.location}}</p>
               </div>
 
-              <div class="occupants">
+              <!-- <div class="occupants">
                 <i class="fas fa-users"></i>
-                <p><strong>4</strong> Occupants</p>
-              </div>
+                <p><strong>{{members.count}}</strong> Occupants</p>
+              </div> -->
             </div>
           </div>
 
-          <button class="join-btn" type="button"><a href="{% url 'join-hood' %}">JOIN HOOD</a></button>
+          <button class="join-btn" type="button"><a href="{% url 'join-hood' id=hood.id %}">JOIN HOOD</a></button>
         </div>
         {% endfor%}
         {% else %}
@@ -144,12 +144,12 @@
 
                 <div class="form-group">
                   <label>Healthcare Emergency Number</label>
-                  <input type="text" class="form-control" name="healthNumber"/>
+                  <input type="text" class="form-control" name="emergency"/>
                 </div>
 
                 <div class="form-group">
                   <label>Police Emergency Number</label>
-                  <input type="text" class="form-control" name="policeNumber"/>
+                  <input type="text" class="form-control" name="police_number"/>
                 </div>
 
                 <div class="form-group">

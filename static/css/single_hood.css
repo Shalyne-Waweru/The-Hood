@@ -29,6 +29,38 @@ body {
   margin-top: -50px;
 }
 
+.logged-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -30px;
+}
+
+.logged-info p {
+  color: white;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.dropdown button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown button:focus {
+  outline: none;
+}
+
+.dropdown button img {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-attachment: fixed;
+}
+
 .navbar .auth-btns a, .navbar .auth-btns a:visited{
   padding: 10px 20px;
   color: black;

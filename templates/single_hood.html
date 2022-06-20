@@ -24,9 +24,25 @@
     <nav class="navbar">
       <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
 
-      <div class="auth-btns">
-        <a href="#">LOGIN</a>
-      </div>
+      {% if user.is_authenticated %}
+        <div class="logged-info">
+          <p>{{user.username}}</p>
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'profile' id=user.id%}">Profile</a>
+              <a class="dropdown-item" href="{% url 'login'%}">Log Out</a>
+            </div>
+          </div>
+          {% else %}
+      
+        <div class="auth-btns">
+          <a href="{% url 'login' %}">LOGIN</a>
+        </div>
+      {% endif %}
     </nav>
 
     <div class="nav-info">
@@ -50,32 +66,29 @@
   <div class="hood-info">
     <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image" />
 
-    <h3>Hood Name</h3>
-    <p><strong>Location</strong></p>
-    <p>Lorem ipsum dolor sit amet. 33
-      impedit dolorem aut enim molestiae
-      et sint nobis est sunt quis id ipsum
-      fugit. Ut quibusdam quae!</p>
+    <h3>{{neighbourhood.name}}</h3>
+    <p><strong>{{neighbourhood.location}}</strong></p>
+    <p>{{neighbourhood.description}}</p>
 
     <div class="emergency">
       <div class="service">
         <p><strong>Police Services</strong></p>
-        <p style="margin-top: -10px;">+254712345678</p>
+        <p style="margin-top: -10px;">{{neighbourhood.police_number}}</p>
       </div>
 
       <div class="service">
         <p><strong>Healthcare Services</strong></p>
-        <p style="margin-top: -10px;">+254712345678</p>
+        <p style="margin-top: -10px;">{{neighbourhood.emergency}}</p>
       </div>
 
       <div class="service">
         <i class="fas fa-users"></i>
-        <p><strong>4</strong> Occupants</p>
+        <p><strong>{{members.count}}</strong> Occupants</p>
       </div>
     </div>
 
     <div class="action-btns">
-      <a class="add-btn" data-toggle="modal" data-target="#addPostModal" href="#">ADD POST</a>
+      <!-- <a class="add-btn" data-toggle="modal" data-target="#addPostModal" href="#">ADD POST</a> -->
       <a class="add-btn" data-toggle="modal" data-target="#addBusinessModal" href="#">ADD BUSINESS</a>
       <a class="leave-btn" href="#">LEAVE HOOD</a>
     </div>
@@ -137,7 +150,7 @@
 
               <div class="form-group">
                 <label>Business Name</label><br>
-                <input type="text" class="form-control" name="businessName" />
+                <input type="text" class="form-control" name="name" />
               </div>
 
               <div class="form-group">
@@ -182,77 +195,32 @@
 
     <div class="container">
       <div class="row">
+        {% if businesses %}
+        {% for business in businesses %}
         <div class="col-md-5">
-          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
+          <img src="{{business.image.url}}" alt="Hood Image" />
 
-          <h3><strong>Business Name</strong></h3>
-          <p><strong>business@gmail.com</strong></p>
-          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-
-          <hr>
-
-          <div class="more-info">
-            <div class="user-info">
-              <a href="{% url 'profile' %}">
-                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
-              </a>
-              <p><strong>Username</strong></p>
-            </div>
-
-            <p><strong>DATE :</strong> 08/04/2022</p>
-          </div>
-        </div>
-
-        <div class="col-md-5">
-          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
-
-          <h3><strong>Business Name</strong></h3>
-          <p><strong>business@gmail.com</strong></p>
-          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
+          <h3><strong>{{business.name}}</strong></h3>
+          <p><strong>{{business.email}}</strong></p>
+          <p style="padding: 0px 20px;">{{business.description}}</p>
 
           <hr>
 
           <div class="more-info">
             <div class="user-info">
               <a href="#">
-                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
+                <img src="{{ business.user.profile.profile_image.url }}" alt="User Image" />
               </a>
-              <p><strong>Username</strong></p>
+              <p><strong>{{business.user.username}}</strong></p>
             </div>
 
             <p><strong>DATE :</strong> 08/04/2022</p>
           </div>
         </div>
-
-        <div class="col-md-5">
-          <img src="{% static 'images/business_sample.jpg' %}" alt="Hood Image" />
-
-          <h3><strong>Business Name</strong></h3>
-          <p><strong>business@gmail.com</strong></p>
-          <p style="padding: 0px 20px;">Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-
-          <hr>
-
-          <div class="more-info">
-            <div class="user-info">
-              <a href="#">
-                <img src="{% static 'images/person.jpeg' %}" alt="User Image" />
-              </a>
-              <p><strong>Username</strong></p>
-            </div>
-
-            <p><strong>DATE :</strong> 08/04/2022</p>
-          </div>
-        </div>
+        {%endfor%}
+        {% else %}
+          <h5>There are no businesses yet!</h5>
+        {% endif %}
       </div>
     </div>
   </div>
