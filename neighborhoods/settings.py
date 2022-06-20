@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pyuploadcare.dj',
+    'crispy_forms',
 ]
 
 UPLOADCARE = {
@@ -75,6 +76,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 WSGI_APPLICATION = 'neighborhoods.wsgi.application'
 
