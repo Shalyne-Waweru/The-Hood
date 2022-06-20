@@ -8,24 +8,51 @@ from .forms import UpdateProfileForm, NeighbourHoodForm,SignupForm,BusinessForm,
 # Create your views here.
 
 def index (request):    
-    return render(request, 'index.html')
+    hoods = NeighbourHood.objects.all()
+    
+    return render(request, 'index.html', locals())
 
 def login_user(request):
-    return render(request, 'auth/login.html')
+  '''
+  View function that renders the login page and its data
+  '''
+  if request.method == "POST":
+    username = request.POST['username']
+    password = request.POST['password']
+    
+    print(username)
+    print(password)
+    
+    user = authenticate(request, username=username, password=password)
+    print(user)
+    
+    if user is not None:
+      login(request, user)
+    #   messages.success(request, username + " Logged In Successfully!")
+      return redirect("index")
+  
+    else:
+    #   messages.error(request, "Username or Password is Incorrect. Please Try Again!")
+      return redirect("login")
+  return render(request,"auth/login.html", locals())
 
 def signup(request):
-    # if request.method == 'POST':
-    #     form = SignupForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         username = form.cleaned_data.get('username')
-    #         password = form.cleaned_data.get('password1')
-    #         user = authenticate(username=username, password=password)
-    #         login(request, user)
-    #         return redirect('index')
-    # else:
-    #     form = SignupForm()
-    return redirect('index')
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+        
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            
+            print(username)
+            
+            # user = authenticate(username=username, password=password1)
+            # login(request, user)
+            return redirect('login')
+    else:
+        form = SignupForm()
     return render(request, 'auth/signup.html', locals())
 
 

@@ -9,8 +9,8 @@ from django.db.models.signals import post_save
 class NeighbourHood(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=100)
-    admin = models.ForeignKey("Profile",on_delete=models.CASCADE,related_name='hood')
-    decription = models.TextField()
+    description = models.TextField()
+    image= models.ImageField(upload_to='hood_images/',null=True)
     emergency = models.IntegerField(null=True,blank=True)
     police_number = models.IntegerField(null=True, blank=True)
     
@@ -31,7 +31,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=80, blank=True)
     bio = models.TextField(max_length=255, blank=True)
-    profile_image = models.ImageField(upload_to='images/',default='default.png')
+    profile_image = models.ImageField(upload_to='profile_images/',default='default.png')
     location = models.CharField(max_length=50, blank=True, null=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, null=True, related_name='members', blank=True)
      
@@ -53,6 +53,8 @@ class Business(models.Model):
     description = models.TextField(blank=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
+    image = models.ImageField(upload_to='business_images/', null=True, blank=True)
+
 
     def __str__(self):
         return f'{self.name} Business'

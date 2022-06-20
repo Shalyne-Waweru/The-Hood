@@ -56,11 +56,14 @@
 
     <div class="container">
       <div class="row">
+        {% if hoods %}
+        {% for hood in hoods%}
+
         <div class="col-md-3">
-          <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image">
+          <img src="{{hood.image.url}}" alt="Hood Image">
 
           <div class="hood-info">
-            <h3>Hood Name</h3>
+            <h3>{{hood.name}}</h3>
             <p>Lorem ipsum dolor sit amet. 33
               impedit dolorem aut enim molestiae
               et sint nobis est sunt quis id ipsum
@@ -83,91 +86,10 @@
 
           <button class="join-btn" type="button"><a href="{% url 'join-hood' %}">JOIN HOOD</a></button>
         </div>
-
-        <div class="col-md-3">
-          <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image">
-
-          <div class="hood-info">
-            <h3>Hood Name</h3>
-            <p>Lorem ipsum dolor sit amet. 33
-              impedit dolorem aut enim molestiae
-              et sint nobis est sunt quis id ipsum
-              fugit. Ut quibusdam quae!</p>
-
-            <hr>
-
-            <div class="more-info">
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Location</p>
-              </div>
-
-              <div class="occupants">
-                <i class="fas fa-users"></i>
-                <p><strong>4</strong> Occupants</p>
-              </div>
-            </div>
-          </div>
-
-          <button class="join-btn" type="button"><a href="#">JOIN HOOD</a></button>
-        </div>
-
-        <div class="col-md-3">
-          <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image">
-
-          <div class="hood-info">
-            <h3>Hood Name</h3>
-            <p>Lorem ipsum dolor sit amet. 33
-              impedit dolorem aut enim molestiae
-              et sint nobis est sunt quis id ipsum
-              fugit. Ut quibusdam quae!</p>
-
-            <hr>
-
-            <div class="more-info">
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Location</p>
-              </div>
-
-              <div class="occupants">
-                <i class="fas fa-users"></i>
-                <p><strong>4</strong> Occupants</p>
-              </div>
-            </div>
-          </div>
-
-          <button class="join-btn" type="button"><a href="#">JOIN HOOD</a></button>
-        </div>
-
-        <div class="col-md-3">
-          <img src="{% static 'images/hood_sample.jpg' %}" alt="Hood Image">
-
-          <div class="hood-info">
-            <h3>Hood Name</h3>
-            <p>Lorem ipsum dolor sit amet. 33
-              impedit dolorem aut enim molestiae
-              et sint nobis est sunt quis id ipsum
-              fugit. Ut quibusdam quae!</p>
-
-            <hr style="width:100%; ">
-
-            <div class="more-info">
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Location</p>
-              </div>
-
-              <div class="occupants">
-                <i class="fas fa-users"></i>
-                <p><strong>4</strong> Occupants</p>
-              </div>
-            </div>
-          </div>
-
-          <button class="join-btn" type="button"><a href="#">JOIN HOOD</a></button>
-        </div>
-
+        {% endfor%}
+        {% else %}
+          <h5>There are no hoods yet!</h5>
+        {%endif%}
       </div>
 
       <div class="add-hood-section">
