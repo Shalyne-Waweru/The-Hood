@@ -207,19 +207,15 @@ def create_post(request,hood_id):
 
 @login_required(login_url='login')
 def search_business(request):
-    if request.method == 'GET':
-        name = request.GET.get("title")
-        results = Business.objects.filter(name__icontains=name).all()
-        print(results)
-        message = f'name'
-        params = {
-            'results': results,
-            'message': message
-        }
-        return render(request, 'results.html', params)
+    if 'name' in request.GET and request.GET["name"]:
+        search_term = request.GET.get("name")
+        searched_businesses = Business.search_business(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message,"searched_businesses": searched_businesses})
     else:
-        message = "You haven't searched for any image category"
-    return render(request, "results.html")
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+
 
 @login_required(login_url='login')
 def leave_hood(request, id):

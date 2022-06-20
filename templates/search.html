@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+    <title>Search Page</title>
+</head>
+
+<body>
+    <div class="search-res">
+        <div class="container">
+            {% if searched_businesses %}
+            <h5><strong>{{searched_businesses | length}}</strong> business(es) found</h5>
+            {% else %}
+            <h5>Found <strong>0</strong> usinesses for the searched term <strong>{{message | title}}</strong></h5>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr style="margin-bottom: 50px;">
+
+    <div class="hood-businesses">
+    
+        <div class="container">
+            <div class="row">
+                {% if searched_businesses %}
+                {% for business in searched_businesses %}
+                <div class="col-md-5">
+                    <img src="{{business.image.url}}" alt="Hood Image" />
+          
+                    <h3><strong>{{business.name}}</strong></h3>
+                    <p><strong>{{business.email}}</strong></p>
+                    <p style="padding: 0px 20px;">{{business.description}}</p>
+          
+                    <hr>
+          
+                    <div class="more-info">
+                      <div class="user-info">
+                        <a href="#">
+                          <img src="{{ business.user.profile.profile_image.url }}" alt="User Image" />
+                        </a>
+                        <p><strong>{{business.user.username}}</strong></p>
+                      </div>
+          
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>  
+        </div>
+      </div>
+
+    <!-- <div class="website-section">
+        <div class="container">
+            <div class="row">
+                {% if searched_businesses %}
+                {% for business in searched_businesses %}
+                <div class="col-md-5">
+                    <img src="{{business.image.url}}" alt="Hood Image" />
+          
+                    <h3><strong>{{business.name}}</strong></h3>
+                    <p><strong>{{business.email}}</strong></p>
+                    <p style="padding: 0px 20px;">{{business.description}}</p>
+          
+                    <hr>
+          
+                    <div class="more-info">
+                      <div class="user-info">
+                        <a href="#">
+                          <img src="{{ business.user.profile.profile_image.url }}" alt="User Image" />
+                        </a>
+                        <p><strong>{{business.user.username}}</strong></p>
+                      </div>
+          
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>         
+        </div>
+    </div> -->
+</body>
+
+</html>

@@ -48,8 +48,8 @@
     <div class="nav-info">
       <h1><strong>Discover the <span class="blue-txt">Latest News</span> in your Neighborhood </strong></h1>
 
-      <form class="form-inline">
-        <input class="form-control" type="search" placeholder="Search for a business .." aria-label="Search">
+      <form class="form-inline" action="{% url 'search'%}">
+        <input class="form-control" type="search" placeholder="Search for a business .." aria-label="Search" name="name">
         <button class="search-btn" type="submit"><i class="fas fa-search"></i> Search</button>
       </form>
 
@@ -214,7 +214,6 @@
               <p><strong>{{business.user.username}}</strong></p>
             </div>
 
-            <p><strong>DATE :</strong> 08/04/2022</p>
           </div>
         </div>
         {%endfor%}
