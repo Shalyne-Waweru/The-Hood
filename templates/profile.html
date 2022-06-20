@@ -25,14 +25,14 @@
       <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
 
       <div class="logged-info">
-        <p>Username</p>
+        <p>{{user.username}}</p>
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <img style="margin-top: 5px;" src="{{ user.profile.profile_image.url }}" alt="">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'profile'%}">Profile</a>
+            <a class="dropdown-item" href="{% url 'profile' id=user%}">Profile</a>
             <a class="dropdown-item" href="{% url 'index'%}">Log Out</a>
           </div>
         </div>
@@ -46,13 +46,13 @@
   <div class="hood-info">
     <img src="{{ user.profile.profile_image.url }}" alt="" />
 
-    <h3>Username</h3>
-    <p>My Bio</p>
+    <h3>{{user.username}}</h3>
+    <p>{{user.profile.bio}}</p>
 
     <div class="more-info">
       <div class="location">
         <i class="fas fa-map-marker-alt"></i>
-        <p>Location</p>
+        <p>{{user.profile.location}}</p>
       </div>
 
       <div class="neighborhood">
@@ -92,8 +92,16 @@
                 <div class="form-control">{{update_profile_form.bio}}</div>
               </div>
               <div class="form-group">
+                {{update_profile_form.location.label}}
+                <div class="form-control">{{update_profile_form.location}}</div>
+              </div>
+              <div class="form-group">
+                {{update_profile_form.neighbourhood.label}}
+                <div class="form-control">{{update_profile_form.neighbourhood}}</div>
+              </div>
+              <div class="form-group">
                 <label>Upload Profile Image</label>
-                <div class="form-control">{{update_profile_form.profile_pic}}</div>
+                <div class="form-control">{{update_profile_form.profile_image}}</div>
               </div>
               <button class="upload-pic" type="submit">UPDATE PROFILE</button>
             </form>

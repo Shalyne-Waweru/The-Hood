@@ -3,7 +3,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import NeighbourHood,Profile,Business,Post
 from django.contrib.auth.models import User
-from .forms import UpdateProfileForm, NeighbourHoodForm,SignupForm,BusinessForm,PostForm
+from .forms import *
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -97,7 +98,7 @@ def join_hood(request):
     return render(request, 'single_hood.html')
 
 # @login_required(login_url='login')
-def profile(request, profile_id):
+def profile(request,id):
   '''
   View function that renders the profile page and its data
   '''
