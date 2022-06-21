@@ -88,17 +88,20 @@ body {
   text-align: center;
   color: white;
   margin-top: 50px;
+  
 }
 
 .nav-info p {
   font-size: 22px;
   font-weight: 300;
+  
 }
 
 .nav-info h3 {
   margin-top: 70px;
   font-size: 30px;
   font-family: 'Charm', cursive;
+  
 }
 
 .explore-btn {
